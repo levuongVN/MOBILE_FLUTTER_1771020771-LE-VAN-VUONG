@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng thông báo - Tên bảng: [xxx]_Notifications
     /// </summary>
-    [Table("734_Notifications")]
+    [Table("771_Notifications")]
     public class Notification
     {
         [Key]
@@ -47,3 +47,4 @@ namespace PcmBackend.Models
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }
+

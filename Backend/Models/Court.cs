@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng sân - Tên bảng: [xxx]_Courts
     /// </summary>
-    [Table("734_Courts")]
+    [Table("771_Courts")]
     public class Court
     {
         [Key]
@@ -32,3 +32,4 @@ namespace PcmBackend.Models
         public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
     }
 }
+

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PcmBackend.Models;
 
-[Table("734_TransactionCategories")]
+[Table("771_TransactionCategories")]
 public class TransactionCategory
 {
     [Key]
@@ -23,3 +23,4 @@ public class TransactionCategory
 
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
 }
+

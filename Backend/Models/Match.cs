@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng trận đấu - Tên bảng: [xxx]_Matches
     /// </summary>
-    [Table("734_Matches")]
+    [Table("771_Matches")]
     public class Match
     {
         [Key]
@@ -102,3 +102,4 @@ namespace PcmBackend.Models
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }
+

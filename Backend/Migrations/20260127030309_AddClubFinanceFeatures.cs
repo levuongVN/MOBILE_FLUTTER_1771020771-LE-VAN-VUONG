@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -13,10 +13,10 @@ namespace PcmBackend.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "MaxParticipants",
-                table: "734_Tournaments");
+                table: "771_Tournaments");
 
             migrationBuilder.CreateTable(
-                name: "734_TransactionCategories",
+                name: "771_TransactionCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -29,7 +29,7 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_TransactionCategories", x => x.Id);
+                    table.PrimaryKey("PK_771_TransactionCategories", x => x.Id);
                 });
         }
 
@@ -37,14 +37,15 @@ namespace PcmBackend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "734_TransactionCategories");
+                name: "771_TransactionCategories");
 
             migrationBuilder.AddColumn<int>(
                 name: "MaxParticipants",
-                table: "734_Tournaments",
+                table: "771_Tournaments",
                 type: "INTEGER",
                 nullable: false,
                 defaultValue: 0);
         }
     }
 }
+

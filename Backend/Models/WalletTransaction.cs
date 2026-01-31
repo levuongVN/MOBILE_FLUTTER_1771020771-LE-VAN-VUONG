@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng giao dịch ví - Tên bảng: [xxx]_WalletTransactions
     /// </summary>
-    [Table("734_WalletTransactions")]
+    [Table("771_WalletTransactions")]
     public class WalletTransaction
     {
         [Key]
@@ -61,3 +61,4 @@ namespace PcmBackend.Models
         public string? ProofImageUrl { get; set; }
     }
 }
+

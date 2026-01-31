@@ -13,15 +13,15 @@
 -- DROP existing tables (if any)
 -- ========================================
 
-DROP TABLE IF EXISTS "734_Notifications" CASCADE;
-DROP TABLE IF EXISTS "734_Matches" CASCADE;
-DROP TABLE IF EXISTS "734_TournamentParticipants" CASCADE;
-DROP TABLE IF EXISTS "734_Tournaments" CASCADE;
-DROP TABLE IF EXISTS "734_Bookings" CASCADE;
-DROP TABLE IF EXISTS "734_Courts" CASCADE;
-DROP TABLE IF EXISTS "734_WalletTransactions" CASCADE;
-DROP TABLE IF EXISTS "734_News" CASCADE;
-DROP TABLE IF EXISTS "734_Members" CASCADE;
+DROP TABLE IF EXISTS "771_Notifications" CASCADE;
+DROP TABLE IF EXISTS "771_Matches" CASCADE;
+DROP TABLE IF EXISTS "771_TournamentParticipants" CASCADE;
+DROP TABLE IF EXISTS "771_Tournaments" CASCADE;
+DROP TABLE IF EXISTS "771_Bookings" CASCADE;
+DROP TABLE IF EXISTS "771_Courts" CASCADE;
+DROP TABLE IF EXISTS "771_WalletTransactions" CASCADE;
+DROP TABLE IF EXISTS "771_News" CASCADE;
+DROP TABLE IF EXISTS "771_Members" CASCADE;
 
 -- Drop Identity tables
 DROP TABLE IF EXISTS "AspNetUserTokens" CASCADE;
@@ -108,7 +108,7 @@ CREATE TABLE "AspNetRoleClaims" (
 -- ========================================
 
 -- Members Table
-CREATE TABLE "734_Members" (
+CREATE TABLE "771_Members" (
     "Id" SERIAL PRIMARY KEY,
     "IdentityUserId" TEXT NOT NULL,
     "FullName" VARCHAR(100) NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE "734_Members" (
 );
 
 -- Wallet Transactions Table
-CREATE TABLE "734_WalletTransactions" (
+CREATE TABLE "771_WalletTransactions" (
     "Id" SERIAL PRIMARY KEY,
     "MemberId" INTEGER NOT NULL,
     "Amount" DOUBLE PRECISION NOT NULL,
@@ -136,11 +136,11 @@ CREATE TABLE "734_WalletTransactions" (
     "CreatedDate" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "ProcessedDate" TIMESTAMPTZ,
     "ProcessedBy" TEXT,
-    FOREIGN KEY ("MemberId") REFERENCES "734_Members"("Id") ON DELETE CASCADE
+    FOREIGN KEY ("MemberId") REFERENCES "771_Members"("Id") ON DELETE CASCADE
 );
 
 -- Courts Table  
-CREATE TABLE "734_Courts" (
+CREATE TABLE "771_Courts" (
     "Id" SERIAL PRIMARY KEY,
     "Name" VARCHAR(100) NOT NULL,
     "Description" VARCHAR(500),
@@ -150,7 +150,7 @@ CREATE TABLE "734_Courts" (
 );
 
 -- Bookings Table
-CREATE TABLE "734_Bookings" (
+CREATE TABLE "771_Bookings" (
     "Id" SERIAL PRIMARY KEY,
     "MemberId" INTEGER NOT NULL,
     "CourtId" INTEGER NOT NULL,
@@ -161,12 +161,12 @@ CREATE TABLE "734_Bookings" (
     "IsRecurring" BOOLEAN NOT NULL DEFAULT FALSE,
     "RecurringUntil" TIMESTAMPTZ,
     "CreatedDate" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY ("MemberId") REFERENCES "734_Members"("Id") ON DELETE CASCADE,
-    FOREIGN KEY ("CourtId") REFERENCES "734_Courts"("Id") ON DELETE RESTRICT
+    FOREIGN KEY ("MemberId") REFERENCES "771_Members"("Id") ON DELETE CASCADE,
+    FOREIGN KEY ("CourtId") REFERENCES "771_Courts"("Id") ON DELETE RESTRICT
 );
 
 -- Tournaments Table
-CREATE TABLE "734_Tournaments" (
+CREATE TABLE "771_Tournaments" (
     "Id" SERIAL PRIMARY KEY,
     "Name" VARCHAR(100) NOT NULL,
     "Description" VARCHAR(500),
@@ -181,7 +181,7 @@ CREATE TABLE "734_Tournaments" (
 );
 
 -- Tournament Participants Table
-CREATE TABLE "734_TournamentParticipants" (
+CREATE TABLE "771_TournamentParticipants" (
     "Id" SERIAL PRIMARY KEY,
     "TournamentId" INTEGER NOT NULL,
     "MemberId" INTEGER NOT NULL,
@@ -190,13 +190,13 @@ CREATE TABLE "734_TournamentParticipants" (
     "Seed" INTEGER,
     "IsPaid" BOOLEAN NOT NULL DEFAULT FALSE,
     "JoinedDate" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY ("TournamentId") REFERENCES "734_Tournaments"("Id") ON DELETE CASCADE,
-    FOREIGN KEY ("MemberId") REFERENCES "734_Members"("Id") ON DELETE CASCADE,
-    FOREIGN KEY ("PartnerId") REFERENCES "734_Members"("Id") ON DELETE SET NULL
+    FOREIGN KEY ("TournamentId") REFERENCES "771_Tournaments"("Id") ON DELETE CASCADE,
+    FOREIGN KEY ("MemberId") REFERENCES "771_Members"("Id") ON DELETE CASCADE,
+    FOREIGN KEY ("PartnerId") REFERENCES "771_Members"("Id") ON DELETE SET NULL
 );
 
 -- Matches Table
-CREATE TABLE "734_Matches" (
+CREATE TABLE "771_Matches" (
     "Id" SERIAL PRIMARY KEY,
     "TournamentId" INTEGER,
     "Team1Player1Id" INTEGER NOT NULL,
@@ -215,16 +215,16 @@ CREATE TABLE "734_Matches" (
     "WinningSide" INTEGER,
     "Round" VARCHAR(50),
     "BracketPosition" INTEGER,
-    FOREIGN KEY ("TournamentId") REFERENCES "734_Tournaments"("Id") ON DELETE SET NULL,
-    FOREIGN KEY ("Team1Player1Id") REFERENCES "734_Members"("Id") ON DELETE RESTRICT,
-    FOREIGN KEY ("Team1Player2Id") REFERENCES "734_Members"("Id") ON DELETE SET NULL,
-    FOREIGN KEY ("Team2Player1Id") REFERENCES "734_Members"("Id") ON DELETE RESTRICT,
-    FOREIGN KEY ("Team2Player2Id") REFERENCES "734_Members"("Id") ON DELETE SET NULL,
-    FOREIGN KEY ("CourtId") REFERENCES "734_Courts"("Id") ON DELETE SET NULL
+    FOREIGN KEY ("TournamentId") REFERENCES "771_Tournaments"("Id") ON DELETE SET NULL,
+    FOREIGN KEY ("Team1Player1Id") REFERENCES "771_Members"("Id") ON DELETE RESTRICT,
+    FOREIGN KEY ("Team1Player2Id") REFERENCES "771_Members"("Id") ON DELETE SET NULL,
+    FOREIGN KEY ("Team2Player1Id") REFERENCES "771_Members"("Id") ON DELETE RESTRICT,
+    FOREIGN KEY ("Team2Player2Id") REFERENCES "771_Members"("Id") ON DELETE SET NULL,
+    FOREIGN KEY ("CourtId") REFERENCES "771_Courts"("Id") ON DELETE SET NULL
 );
 
 -- News Table
-CREATE TABLE "734_News" (
+CREATE TABLE "771_News" (
     "Id" SERIAL PRIMARY KEY,
     "Title" VARCHAR(200) NOT NULL,
     "Content" TEXT NOT NULL,
@@ -236,7 +236,7 @@ CREATE TABLE "734_News" (
 );
 
 -- Notifications Table
-CREATE TABLE "734_Notifications" (
+CREATE TABLE "771_Notifications" (
     "Id" SERIAL PRIMARY KEY,
     "MemberId" INTEGER NOT NULL,
     "Title" VARCHAR(200) NOT NULL,
@@ -246,22 +246,22 @@ CREATE TABLE "734_Notifications" (
     "IsRead" BOOLEAN NOT NULL DEFAULT FALSE,
     "DeepLink" VARCHAR(200),
     "CreatedDate" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY ("MemberId") REFERENCES "734_Members"("Id") ON DELETE CASCADE
+    FOREIGN KEY ("MemberId") REFERENCES "771_Members"("Id") ON DELETE CASCADE
 );
 
 -- ========================================
 -- Create Indexes
 -- ========================================
 
-CREATE INDEX "IX_734_Members_IdentityUserId" ON "734_Members"("IdentityUserId");
-CREATE INDEX "IX_734_WalletTransactions_MemberId" ON "734_WalletTransactions"("MemberId");
-CREATE INDEX "IX_734_Bookings_MemberId" ON "734_Bookings"("MemberId");
-CREATE INDEX "IX_734_Bookings_CourtId" ON "734_Bookings"("CourtId");
-CREATE INDEX "IX_734_Bookings_StartTime" ON "734_Bookings"("StartTime");
-CREATE INDEX "IX_734_TournamentParticipants_TournamentId" ON "734_TournamentParticipants"("TournamentId");
-CREATE INDEX "IX_734_TournamentParticipants_MemberId" ON "734_TournamentParticipants"("MemberId");
-CREATE INDEX "IX_734_Matches_TournamentId" ON "734_Matches"("TournamentId");
-CREATE INDEX "IX_734_Notifications_MemberId" ON "734_Notifications"("MemberId");
+CREATE INDEX "IX_771_Members_IdentityUserId" ON "771_Members"("IdentityUserId");
+CREATE INDEX "IX_771_WalletTransactions_MemberId" ON "771_WalletTransactions"("MemberId");
+CREATE INDEX "IX_771_Bookings_MemberId" ON "771_Bookings"("MemberId");
+CREATE INDEX "IX_771_Bookings_CourtId" ON "771_Bookings"("CourtId");
+CREATE INDEX "IX_771_Bookings_StartTime" ON "771_Bookings"("StartTime");
+CREATE INDEX "IX_771_TournamentParticipants_TournamentId" ON "771_TournamentParticipants"("TournamentId");
+CREATE INDEX "IX_771_TournamentParticipants_MemberId" ON "771_TournamentParticipants"("MemberId");
+CREATE INDEX "IX_771_Matches_TournamentId" ON "771_Matches"("TournamentId");
+CREATE INDEX "IX_771_Notifications_MemberId" ON "771_Notifications"("MemberId");
 CREATE INDEX "IX_AspNetUserRoles_RoleId" ON "AspNetUserRoles"("RoleId");
 
 -- ========================================
@@ -269,3 +269,4 @@ CREATE INDEX "IX_AspNetUserRoles_RoleId" ON "AspNetUserRoles"("RoleId");
 -- ========================================
 
 COMMIT;
+

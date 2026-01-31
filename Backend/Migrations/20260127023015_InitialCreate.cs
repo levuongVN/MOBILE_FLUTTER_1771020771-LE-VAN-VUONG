@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -12,7 +12,7 @@ namespace PcmBackend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "734_Courts",
+                name: "771_Courts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -24,11 +24,11 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Courts", x => x.Id);
+                    table.PrimaryKey("PK_771_Courts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_Tournaments",
+                name: "771_Tournaments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -47,7 +47,7 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Tournaments", x => x.Id);
+                    table.PrimaryKey("PK_771_Tournaments", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -111,7 +111,7 @@ namespace PcmBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_Members",
+                name: "771_Members",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -128,9 +128,9 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Members", x => x.Id);
+                    table.PrimaryKey("PK_771_Members", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_Members_AspNetUsers_UserId",
+                        name: "FK_771_Members_AspNetUsers_UserId",
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
@@ -223,7 +223,7 @@ namespace PcmBackend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_Matches",
+                name: "771_Matches",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -247,46 +247,46 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Matches", x => x.Id);
+                    table.PrimaryKey("PK_771_Matches", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Courts_CourtId",
+                        name: "FK_771_Matches_771_Courts_CourtId",
                         column: x => x.CourtId,
-                        principalTable: "734_Courts",
+                        principalTable: "771_Courts",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Members_Team1_Player1Id",
+                        name: "FK_771_Matches_771_Members_Team1_Player1Id",
                         column: x => x.Team1_Player1Id,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Members_Team1_Player2Id",
+                        name: "FK_771_Matches_771_Members_Team1_Player2Id",
                         column: x => x.Team1_Player2Id,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Members_Team2_Player1Id",
+                        name: "FK_771_Matches_771_Members_Team2_Player1Id",
                         column: x => x.Team2_Player1Id,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Members_Team2_Player2Id",
+                        name: "FK_771_Matches_771_Members_Team2_Player2Id",
                         column: x => x.Team2_Player2Id,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Matches_734_Tournaments_TournamentId",
+                        name: "FK_771_Matches_771_Tournaments_TournamentId",
                         column: x => x.TournamentId,
-                        principalTable: "734_Tournaments",
+                        principalTable: "771_Tournaments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_News",
+                name: "771_News",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -300,16 +300,16 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_News", x => x.Id);
+                    table.PrimaryKey("PK_771_News", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_News_734_Members_CreatedByMemberId",
+                        name: "FK_771_News_771_Members_CreatedByMemberId",
                         column: x => x.CreatedByMemberId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_Notifications",
+                name: "771_Notifications",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -323,17 +323,17 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Notifications", x => x.Id);
+                    table.PrimaryKey("PK_771_Notifications", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_Notifications_734_Members_ReceiverId",
+                        name: "FK_771_Notifications_771_Members_ReceiverId",
                         column: x => x.ReceiverId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_TournamentParticipants",
+                name: "771_TournamentParticipants",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -348,28 +348,28 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_TournamentParticipants", x => x.Id);
+                    table.PrimaryKey("PK_771_TournamentParticipants", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_TournamentParticipants_734_Members_MemberId",
+                        name: "FK_771_TournamentParticipants_771_Members_MemberId",
                         column: x => x.MemberId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_TournamentParticipants_734_Members_PartnerId",
+                        name: "FK_771_TournamentParticipants_771_Members_PartnerId",
                         column: x => x.PartnerId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_734_TournamentParticipants_734_Tournaments_TournamentId",
+                        name: "FK_771_TournamentParticipants_771_Tournaments_TournamentId",
                         column: x => x.TournamentId,
-                        principalTable: "734_Tournaments",
+                        principalTable: "771_Tournaments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_WalletTransactions",
+                name: "771_WalletTransactions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -385,17 +385,17 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_WalletTransactions", x => x.Id);
+                    table.PrimaryKey("PK_771_WalletTransactions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_WalletTransactions_734_Members_MemberId",
+                        name: "FK_771_WalletTransactions_771_Members_MemberId",
                         column: x => x.MemberId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "734_Bookings",
+                name: "771_Bookings",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -414,116 +414,116 @@ namespace PcmBackend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_734_Bookings", x => x.Id);
+                    table.PrimaryKey("PK_771_Bookings", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_734_Bookings_734_Bookings_ParentBookingId",
+                        name: "FK_771_Bookings_771_Bookings_ParentBookingId",
                         column: x => x.ParentBookingId,
-                        principalTable: "734_Bookings",
+                        principalTable: "771_Bookings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Bookings_734_Courts_CourtId",
+                        name: "FK_771_Bookings_771_Courts_CourtId",
                         column: x => x.CourtId,
-                        principalTable: "734_Courts",
+                        principalTable: "771_Courts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Bookings_734_Members_MemberId",
+                        name: "FK_771_Bookings_771_Members_MemberId",
                         column: x => x.MemberId,
-                        principalTable: "734_Members",
+                        principalTable: "771_Members",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_734_Bookings_734_WalletTransactions_TransactionId",
+                        name: "FK_771_Bookings_771_WalletTransactions_TransactionId",
                         column: x => x.TransactionId,
-                        principalTable: "734_WalletTransactions",
+                        principalTable: "771_WalletTransactions",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Bookings_CourtId_StartTime_EndTime",
-                table: "734_Bookings",
+                name: "IX_771_Bookings_CourtId_StartTime_EndTime",
+                table: "771_Bookings",
                 columns: new[] { "CourtId", "StartTime", "EndTime" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Bookings_MemberId",
-                table: "734_Bookings",
+                name: "IX_771_Bookings_MemberId",
+                table: "771_Bookings",
                 column: "MemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Bookings_ParentBookingId",
-                table: "734_Bookings",
+                name: "IX_771_Bookings_ParentBookingId",
+                table: "771_Bookings",
                 column: "ParentBookingId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Bookings_TransactionId",
-                table: "734_Bookings",
+                name: "IX_771_Bookings_TransactionId",
+                table: "771_Bookings",
                 column: "TransactionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_CourtId",
-                table: "734_Matches",
+                name: "IX_771_Matches_CourtId",
+                table: "771_Matches",
                 column: "CourtId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_Team1_Player1Id",
-                table: "734_Matches",
+                name: "IX_771_Matches_Team1_Player1Id",
+                table: "771_Matches",
                 column: "Team1_Player1Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_Team1_Player2Id",
-                table: "734_Matches",
+                name: "IX_771_Matches_Team1_Player2Id",
+                table: "771_Matches",
                 column: "Team1_Player2Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_Team2_Player1Id",
-                table: "734_Matches",
+                name: "IX_771_Matches_Team2_Player1Id",
+                table: "771_Matches",
                 column: "Team2_Player1Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_Team2_Player2Id",
-                table: "734_Matches",
+                name: "IX_771_Matches_Team2_Player2Id",
+                table: "771_Matches",
                 column: "Team2_Player2Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Matches_TournamentId",
-                table: "734_Matches",
+                name: "IX_771_Matches_TournamentId",
+                table: "771_Matches",
                 column: "TournamentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Members_UserId",
-                table: "734_Members",
+                name: "IX_771_Members_UserId",
+                table: "771_Members",
                 column: "UserId",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_News_CreatedByMemberId",
-                table: "734_News",
+                name: "IX_771_News_CreatedByMemberId",
+                table: "771_News",
                 column: "CreatedByMemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_Notifications_ReceiverId_IsRead",
-                table: "734_Notifications",
+                name: "IX_771_Notifications_ReceiverId_IsRead",
+                table: "771_Notifications",
                 columns: new[] { "ReceiverId", "IsRead" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_TournamentParticipants_MemberId",
-                table: "734_TournamentParticipants",
+                name: "IX_771_TournamentParticipants_MemberId",
+                table: "771_TournamentParticipants",
                 column: "MemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_TournamentParticipants_PartnerId",
-                table: "734_TournamentParticipants",
+                name: "IX_771_TournamentParticipants_PartnerId",
+                table: "771_TournamentParticipants",
                 column: "PartnerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_TournamentParticipants_TournamentId",
-                table: "734_TournamentParticipants",
+                name: "IX_771_TournamentParticipants_TournamentId",
+                table: "771_TournamentParticipants",
                 column: "TournamentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_734_WalletTransactions_MemberId",
-                table: "734_WalletTransactions",
+                name: "IX_771_WalletTransactions_MemberId",
+                table: "771_WalletTransactions",
                 column: "MemberId");
 
             migrationBuilder.CreateIndex(
@@ -568,19 +568,19 @@ namespace PcmBackend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "734_Bookings");
+                name: "771_Bookings");
 
             migrationBuilder.DropTable(
-                name: "734_Matches");
+                name: "771_Matches");
 
             migrationBuilder.DropTable(
-                name: "734_News");
+                name: "771_News");
 
             migrationBuilder.DropTable(
-                name: "734_Notifications");
+                name: "771_Notifications");
 
             migrationBuilder.DropTable(
-                name: "734_TournamentParticipants");
+                name: "771_TournamentParticipants");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -598,22 +598,23 @@ namespace PcmBackend.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "734_WalletTransactions");
+                name: "771_WalletTransactions");
 
             migrationBuilder.DropTable(
-                name: "734_Courts");
+                name: "771_Courts");
 
             migrationBuilder.DropTable(
-                name: "734_Tournaments");
+                name: "771_Tournaments");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "734_Members");
+                name: "771_Members");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
         }
     }
 }
+

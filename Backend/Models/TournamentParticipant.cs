@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng người tham gia giải đấu - Tên bảng: [xxx]_TournamentParticipants
     /// </summary>
-    [Table("734_TournamentParticipants")]
+    [Table("771_TournamentParticipants")]
     public class TournamentParticipant
     {
         [Key]
@@ -51,3 +51,4 @@ namespace PcmBackend.Models
         public DateTime RegisteredDate { get; set; } = DateTime.UtcNow;
     }
 }
+

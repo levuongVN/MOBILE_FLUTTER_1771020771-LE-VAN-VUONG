@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng giải đấu - Tên bảng: [xxx]_Tournaments
     /// </summary>
-    [Table("734_Tournaments")]
+    [Table("771_Tournaments")]
     public class Tournament
     {
         [Key]
@@ -85,3 +85,4 @@ namespace PcmBackend.Models
         public virtual ICollection<Match> Matches { get; set; } = new List<Match>();
     }
 }
+

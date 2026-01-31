@@ -6,7 +6,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng tin tức - Tên bảng: [xxx]_News
     /// </summary>
-    [Table("734_News")]
+    [Table("771_News")]
     public class News
     {
         [Key]
@@ -41,3 +41,4 @@ namespace PcmBackend.Models
         public virtual Member? CreatedBy { get; set; }
     }
 }
+

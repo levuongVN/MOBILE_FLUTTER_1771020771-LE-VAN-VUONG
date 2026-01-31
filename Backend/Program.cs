@@ -9,9 +9,13 @@ using PcmBackend.Hubs;
 using PcmBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+// Port configuration is handled by ASPNETCORE_URLS environment variable
+// For local development without env var, default to 5050
+if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ASPNETCORE_URLS")))
+{
+    builder.WebHost.UseUrls("http://localhost:5050", "http://0.0.0.0:5050");
+}
 
-// Force backend to listen on HTTP port 5000
-builder.WebHost.UseUrls("http://localhost:5050", "http://0.0.0.0:5050");
 
 // ==================== Database Configuration ====================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

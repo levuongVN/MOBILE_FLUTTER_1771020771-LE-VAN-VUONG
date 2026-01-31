@@ -1,0 +1,33 @@
+# Dependencies
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+
+# Platform-specific folders
+android/
+ios/
+linux/
+macos/
+windows/
+
+# Testing
+test/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Misc
+.DS_Store
+.metadata
+*.log
+*.swp
+*.swo
+*~

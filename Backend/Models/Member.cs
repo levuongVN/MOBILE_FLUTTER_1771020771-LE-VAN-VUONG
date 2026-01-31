@@ -7,7 +7,7 @@ namespace PcmBackend.Models
     /// <summary>
     /// Bảng thành viên CLB - Tên bảng: [xxx]_Members (thay xxx bằng 3 số cuối MSSV)
     /// </summary>
-    [Table("734_Members")]
+    [Table("771_Members")]
     public class Member
     {
         [Key]
@@ -66,3 +66,4 @@ namespace PcmBackend.Models
         public virtual ICollection<Notification> Notifications { get; set; } = new List<Notification>();
     }
 }
+
