@@ -3472,19 +3472,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dovan\\.nuget\\packages\\": {}
+    "/Users/vuongle/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\Mobile\\bai_kiem_tra_nang_cao\\Backend\\PcmBackend.csproj",
+      "projectUniqueName": "/Users/vuongle/ImportanDocuments/MOBILE_FLUTTER_1771020771-LE-VAN-VUONG/Backend/PcmBackend.csproj",
       "projectName": "PcmBackend",
-      "projectPath": "d:\\Mobile\\bai_kiem_tra_nang_cao\\Backend\\PcmBackend.csproj",
-      "packagesPath": "C:\\Users\\dovan\\.nuget\\packages\\",
-      "outputPath": "d:\\Mobile\\bai_kiem_tra_nang_cao\\Backend\\obj\\",
+      "projectPath": "/Users/vuongle/ImportanDocuments/MOBILE_FLUTTER_1771020771-LE-VAN-VUONG/Backend/PcmBackend.csproj",
+      "packagesPath": "/Users/vuongle/.nuget/packages/",
+      "outputPath": "/Users/vuongle/ImportanDocuments/MOBILE_FLUTTER_1771020771-LE-VAN-VUONG/Backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\dovan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/Users/vuongle/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3507,7 +3507,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -3553,6 +3554,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.20, 8.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.osx-arm64",
+            "version": "[8.0.20, 8.0.20]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.20, 8.0.20]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3561,7 +3576,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

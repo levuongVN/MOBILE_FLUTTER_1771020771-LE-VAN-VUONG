@@ -1,7 +1,7 @@
 # 🎾 Pickleball Club Management - Vợt Thủ Phố Núi
 
-**Sinh viên**: Đỗ Văn Tuyên  
-**MSSV**: xxxxx734  
+**Sinh viên**: Lê Văn Vuọng 
+**MSSV**: xxxxx771  
 **Lớp**: CNTT 17-08
 
 Hệ thống quản lý CLB Pickleball hoàn chỉnh với Backend (ASP.NET Core 8 Web API), Frontend (Flutter Mobile/Web), và Database (PostgreSQL).
@@ -161,7 +161,7 @@ Hệ thống đã có sẵn dữ liệu mẫu. Sử dụng các tài khoản sau
 ---
 
 ## 🎓 Sinh viên thực hiện
-**MSSV**: xxxxx734  
-**Họ tên**: Đỗ Văn Tuyên  
+**MSSV**: xxxxx771 
+**Họ tên**: Lê Văn Vượng  
 **Lớp**: CNTT 17-08  
 **Năm**: 2026
