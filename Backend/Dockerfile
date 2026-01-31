@@ -1,20 +1,20 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+# Stage 1: Build dùng SDK 8.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Sửa: Vì đang đứng trong Backend rồi, chỉ cần tìm file .csproj tại chỗ
+# Docker đang đứng trong Backend nhờ cấu hình Render
 COPY *.csproj ./
 RUN dotnet restore
 
-# Sửa: Copy mọi thứ ở thư mục hiện tại (chính là Backend) vào container
 COPY . .
 RUN dotnet publish -c Release -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0
+# Stage 2: Run dùng Runtime 8.0 (Khớp với phiên bản code của bạn)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-# Đảm bảo file này tên chính xác là PcmBackend.dll nhé
 ENTRYPOINT ["dotnet", "PcmBackend.dll"]
