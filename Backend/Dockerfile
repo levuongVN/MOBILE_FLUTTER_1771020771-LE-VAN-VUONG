@@ -8,7 +8,7 @@ RUN dotnet restore Backend/PcmBackend.csproj
 
 # Copy everything else and build
 COPY Backend/ Backend/
-RUN dotnet publish Backend/PcmBackend.csproj -c Release -o /app/publish --no-restore
+RUN dotnet publish Backend/PcmBackend.csproj -c Release -o /app/publish
 
 # Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
