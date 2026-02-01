@@ -1,3 +1,4 @@
+using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,13 @@ using PcmBackend.Hubs;
 using PcmBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Ensure SQLite directory exists in Production (Render container)
+if (builder.Environment.IsProduction())
+{
+    try { Directory.CreateDirectory("/app/data"); } catch { }
+}
+
 // Port configuration is handled by ASPNETCORE_URLS environment variable
 // For local development without env var, default to 5050
 if (string.IsNullOrEmpty(Environment.GetEnvironmentVariable("ASPNETCORE_URLS")))
