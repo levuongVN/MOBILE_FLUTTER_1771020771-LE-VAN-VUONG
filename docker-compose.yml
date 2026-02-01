@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Backend/Dockerfile
+    container_name: pcm-backend
+    ports:
+      - "10000:10000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:10000
+      - Jwt__Key=YourSuperSecretKeyThatIsAtLeast32CharactersLong!@#$$%
+      - Jwt__Issuer=PcmBackend
+      - Jwt__Audience=PcmMobileApp
+      - Jwt__ExpireMinutes=1440
+    volumes:
+      # Persist database between container restarts
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:10000/swagger/index.html" ]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+volumes:
+  data:
